@@ -1,10 +1,10 @@
 # RocketPay
 Projeto criado através da plataforma Rocketseat no evento Explorer Lab.
-## Deploy da aplicação
 
+## Deploy da aplicação
+https://rockpay.netlify.app/
 
 ## Tecnologias utilizadas
-
 + HTML5
 + CSS3
 + JavaScript
@@ -15,7 +15,6 @@ Projeto criado através da plataforma Rocketseat no evento Explorer Lab.
 + Nome do Titular: Seção onde é inserido o nome do titular do cartão
 + Expiração: Seção onde é inserido a data de expiração do cartão
 + CVC: Seção onde é inserido o CVC do cartão
-
 
 ## Home
 
