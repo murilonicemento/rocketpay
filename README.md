@@ -11,11 +11,10 @@ Projeto criado através da plataforma Rocketseat no evento Explorer Lab.
 + Node JS
 
 ## Estrutura do site
-+ Número do Cartão: 
-+ Nome do Titular:
-+ Expiração: 
-+ CVC:
-+ Adicionar Cartão:
++ Número do Cartão: Seção onde é inserido o número do cartão
++ Nome do Titular: Seção onde é inserido o nome do titular do cartão
++ Expiração: Seção onde é inserido a data de expiração do cartão
++ CVC: Seção onde é inserido o CVC do cartão
 
 
 ## Home
