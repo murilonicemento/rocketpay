@@ -5,7 +5,6 @@ const ccBgColor01 = document.querySelector(".cc-bg svg > g g:nth-child(1) path")
 const ccBgColor02 = document.querySelector(".cc-bg svg > g g:nth-child(2) path");
 const ccLogo = document.querySelector(".cc-logo span:nth-child(2) img");
 
-// MUDANÇA DA COR E DA BANDEIRA DO CARTÃO
 function setCardType(type) {
     const color = {
         visa: ["#436D99", "#2D57F2"],
@@ -19,14 +18,12 @@ function setCardType(type) {
 }
 globalThis.setCardType = setCardType;
 
-// SECURITY CODE
 const securityCode = document.querySelector("#security-code");
 const securityCodePattern = {
     mask: "0000"
 };
 const securityCodeMasked = IMask(securityCode, securityCodePattern);
 
-// EXPIRATION DATE
 const expirationDate = document.querySelector("#expiration-date");
 const expirationDatePattern = {
     mask: "MM{/}YY",
@@ -45,7 +42,6 @@ const expirationDatePattern = {
 }
 const expirationDateMask = IMask(expirationDate, expirationDatePattern);
 
-// CARD NUMBER
 const cardNumber = document.querySelector("#card-number");
 const cardNumberPattern = {
     mask: [
@@ -73,3 +69,56 @@ const cardNumberPattern = {
     },
 }
 const cardNumberMasked = IMask(cardNumber, cardNumberPattern);
+
+const addButton = document.querySelector("#add-card");
+addButton.addEventListener("click", () => {
+    alert("Cartão adicionado!");
+    document.getElementById("card-number").value = "";
+    document.getElementById("card-holder").value = "";
+    document.getElementById("expiration-date").value = "";
+    document.getElementById("security-code").value = "";
+    
+    document.querySelector(".cc-number").innerText = "1234 5678 9012 3456";
+    document.querySelector(".cc-holder .value").innerText = "FULANO DA SILVA";
+    document.querySelector(".cc-expiration .value").innerText = "02/32";
+    document.querySelector(".cc-security .value").innerText = "123";
+});
+
+document.querySelector("form").addEventListener("submit", (event) => {
+    event.preventDefault();
+});
+
+const cardHolder = document.querySelector("#card-holder");
+cardHolder.addEventListener("input", () => {
+    const ccHolder = document.querySelector(".cc-holder .value");
+    ccHolder.innerText = cardHolder.value === "" ? ccHolder.innerText = "FULANO DA SILVA" : cardHolder.value;
+});
+
+securityCodeMasked.on("accept", () => {
+    updateSecurityCode(securityCodeMasked.value);
+});
+
+function updateSecurityCode(code) {
+    const ccSecurity = document.querySelector(".cc-security .value");
+    ccSecurity.innerText = code.length === 0 ? "123" : code;
+};
+
+cardNumberMasked.on("accept", () => {
+    const cardType = cardNumberMasked.masked.currentMask.cardtype;
+    setCardType(cardType);
+    updateCardNumber(cardNumberMasked.value);
+});
+
+function updateCardNumber(number) {
+    const ccNumber = document.querySelector(".cc-number");
+    ccNumber.innerText = number.length === 0 ? "1234 5678 9012 3456" : number;
+};
+
+expirationDateMask.on("accept", () => {
+    updateExpirationDate(expirationDateMask.value);
+});
+
+function updateExpirationDate(date){
+    const ccExpirationDate = document.querySelector(".cc-expiration .value");
+    ccExpirationDate.innerText = date.length === 0 ? "02/32" : date; 
+}

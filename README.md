@@ -2,13 +2,12 @@
 Projeto criado através da plataforma Rocketseat no evento Explorer Lab.
 
 ## Deploy da aplicação
-https://rockpay.netlify.app/
+https://rocketpay-topaz.vercel.app/
 
 ## Tecnologias utilizadas
 + HTML5
 + CSS3
 + JavaScript
-+ Node JS
 
 ## Estrutura do site
 + Número do Cartão: Seção onde é inserido o número do cartão
